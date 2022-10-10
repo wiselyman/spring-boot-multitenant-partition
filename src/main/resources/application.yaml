@@ -1,4 +1,3 @@
-spring.jpa.properties.hibernate.tenant_identifier_resolver: top.wisely.springbootmultitenantpartition.WiselyTenantIdResolver
 spring.datasource.url: jdbc:mysql://localhost:3306/partitioned
 spring.datasource.username: root
 spring.datasource.password: example

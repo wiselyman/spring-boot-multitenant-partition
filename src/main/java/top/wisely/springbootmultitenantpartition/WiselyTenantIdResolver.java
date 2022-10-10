@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Component
-public class WiselyTenantIdResolver implements CurrentTenantIdentifierResolver {
+public class WiselyTenantIdResolver implements CurrentTenantIdentifierResolver, HibernatePropertiesCustomizer  {
 
     private static final ThreadLocal<String> CURRENT_TENANT = new ThreadLocal<>();
     public void setCurrentTenant(String currentTenant) {
@@ -24,6 +24,11 @@ public class WiselyTenantIdResolver implements CurrentTenantIdentifierResolver {
     @Override
     public boolean validateExistingCurrentSessions() {
         return false;
+    }
+
+    @Override
+    public void customize(Map<String, Object> hibernateProperties) {
+        hibernateProperties.put(AvailableSettings.MULTI_TENANT_IDENTIFIER_RESOLVER, this);
     }
 
 }

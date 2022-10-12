@@ -9,7 +9,6 @@ import org.hibernate.annotations.TenantId;
 
 @Entity
 @Data
-
 public class Person {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -18,5 +17,4 @@ public class Person {
     private String tenantId;
     private String name;
     private Integer age;
-
 }
